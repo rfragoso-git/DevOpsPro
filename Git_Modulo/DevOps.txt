@@ -1,0 +1,39 @@
+### Curso DevOps Pro
+
+Modelo Waterfall - Modelo em cascata (Project)
+Planejamento - Desenvolvimento - Teste - Implantação - (Monitoramento e Observidade)
+
+Modelo Agil - Modelo em ciclos menores (Scrum - Kanbam)
+Planejamento - Desenvolvimento - Teste - Implantação - (Monitoramento e Observidade)
+
+Os 3 principios de DevOps
+
+- Fluxo no valor tecnológico, otimização dos processos
+- Feedback, utilizar recursos de observidade, trabalho em hiposes, identificar resolver problemas no início;
+- Aprendizado sobre o erro, sem culpados, difundir descobertas, melhoria continua do trabalho diário
+
+Ciclos de DevOps
+
+- Plain (Gira, Azure DevOps, Gitlabs) ferramentas de gerenciamento
+- Code (VSCode, Git, Eclipse, PyCharm) ferramentas de codificação
+- Build (NPM => node , Nuget => dotnet, Maven => Java, PIP => Python) Depender da tecnologia
+- Teste (Selenion, JUnit, Mocha)
+- Deploy CI/CD (JenKins, GitHubActions, )
+- Operação (Terraform, Ansible, Docker, Kubernetes, VMs)
+- Monitoramento (Grafana, Prometheus)
+
+SSH - Security Shell
+
+Version Control System - Git - Azure DevOps
+
+## Conceitos de Branchs
+
+- Main ou Master => Branch principal
+- Develop => Branch de desenvolvimento
+- Feature => Adicionar novos pacotes, ou especialização do desenvolvimento (Cadastro de pessoas)
+- Hotfix => Branch de correções de Bugs
+- Release => Testar novas entregas
+
+## Tecnicas para juntar Branchs, pode ser por meio de merges, rebase ou sharepic
+
+

@@ -1,0 +1,4 @@
+Teste de funcionalidades do git
+Mais um teste
+
+Adiconando linha diretamente via interface Git WEB 

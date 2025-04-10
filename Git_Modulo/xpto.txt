@@ -1,0 +1,7 @@
+Criação da branch feature/xpto c/ checkout -b
+
+git config pull.rebase false  # Para fazer merge
+
+git config pull.rebase true   # Para fazer rebase
+
+git config pull.ff only       # Para fazer fast-forward only

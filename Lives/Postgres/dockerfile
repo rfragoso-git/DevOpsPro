@@ -1,0 +1,11 @@
+FROM postgres
+
+ENV POSTGRES_PASSWORD=rfragoso1966
+
+ENV POSTGRES_USER=rfragoso
+
+ENV POSTGRES_DB=db-aula
+
+VOLUME [ "/db-postgres" ]
+
+EXPOSE 5432

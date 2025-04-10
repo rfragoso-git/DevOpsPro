@@ -1,0 +1,7 @@
+FROM nginx:alpine
+
+RUN apk update
+
+RUN apk add --no-cache vim bash py3-pip
+
+EXPOSE 8080

@@ -1,0 +1,5 @@
+Testes de Commit c/ Git
+
+git Commit -m "Anotação"
+
+git commit -a -m "Adiciona a área de controle e já efetua o commit"

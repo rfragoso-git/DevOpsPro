@@ -1,0 +1,16 @@
+### Azure VM 
+
+Host: ubuntu-devopspro
+
+IP: 20.150.222.123
+
+user: rfragoso
+Passwd: 0l1ve1R@19GG
+
+Chave id_rsa
+fR@g0s01966
+
+Chave id_rsa_ubuntu
+0l1ve1R@19GG
+
+sudo ssh -i /home/rfragoso/.ssh/id_rsa_ubuntu rfragoso@20.150.222.123

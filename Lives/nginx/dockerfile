@@ -1,0 +1,11 @@
+FROM nginx
+
+RUN apt update 
+
+RUN apt install curl vim python3-pip --yes
+
+COPY index-nginx-color.html /usr/share/nginx/html/index.html
+
+COPY 50x.html /usr/share/nginx/html/50x.html
+
+EXPOSE 8080

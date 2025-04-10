@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laboratorio - Nginx - Proxy Reverso</title>
+    <style>
+      body {
+        width: 35em;
+        margin: 0 auto;
+        background-color: orangered;
+        font-family: Verdana, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body onload="getIP()">
+    <div id="list"></div>
+    <h1>Laboratorio - Nginx - Proxy Reverso</h1>
+    <script>
+        function getIP(json) {  
+    document.write("My public IP address is: ", json.ip);  
+    }
+    </script>
+     
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>  
+
+  </body>
+</html>

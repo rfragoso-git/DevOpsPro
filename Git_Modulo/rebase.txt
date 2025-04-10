@@ -1,0 +1,3 @@
+Adicionando o novo arquivo rebase.txt
+Adcionando o arquivo rebase.txt a Branch Rebase
+Incluindo segunda linha no arquivo rebase.txt

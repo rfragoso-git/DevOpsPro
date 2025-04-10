@@ -1,0 +1,113 @@
+# Aula s/ Docker
+
+LXC - Containers
+
+sudo apt update -y && sudo apt install lxc lxc-templates 
+
+sudo lxc-create -t ubuntu -n my_container # Criar um containers
+
+sudo lxc-ls --fancy # Listar os containers
+
+sudo lxc-start -n my_container # Para iniciar o containers
+
+sudo lxc-attach -n my_container # Entrar no container
+
+LXD - Containers
+
+sudo snap install lxd 
+
+lxc launch ubuntu:22.04 my-container
+
+lxc list
+
+lxc exec my-container /bin/bash
+
+lxc stop my-container
+
+lxc delete my-container
+
+# Docker
+
+Imagem = Filesystem
+
+Primeiro elemento é o Docker Daemon, responsável por gerenciar todos os elementos e objetos do Docker
+- imagens
+- containers
+- network
+- volumes
+
+Elementos:
+    Docker Host (Notebbok, Desktop, Servers)
+        * Docker Daemon - responsável por gerenciar todas os elementos do Docker, roda em uma maquina, que chamamos de Docker Host (local/remoto)
+            - Gerenciar = containers, imagens
+
+        * Docker Client é o elemento que interage, se comunica com o Docker Daemon
+
+        * Docker Register é o repositório das imagens do Docker (Publíco/Privado) "DockerHub"
+
+Arquitetura do Docker Daemon
+
+Originalmente Docker Daemon + Para criar containers usava o LXC - que interagia com Kernel Linux, componentes (namespace, cgroups).
+A evolução do Docker Daemon passou para estrutura modular gerenciando (network, imagem, volumes)
+O LXC de terceiros foi substituído pela Docker chamado ContainerD.
+    
+- ContainerD responsável por gerenciar o ciclo de vida dos containers.
+    processos:
+    - O RUNC que esta abaixo do ContainerD responsável por executar os containers, ele é chamado para criar, e após a criação ele é encerrado
+    - SHIM - responsável por gerenciar o container (stdout/stdin/stde)
+    - Container
+
+ECR - Elastic Container Register (AWS)
+ACR - Azure Container Register (Azure)
+
+*** Recurso do Docker publish de porta or portbind
+
+docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rfR@g0s01966 -e MYSQL_DATABASE=db_MYDB -e MYSQL_USER=rfragoso -e MYSQL_PASSWORD=rfR@g0s01966 mysql
+
+docker Container run -it -p 8080:8080 ubuntu
+- apt-get install -y 
+- curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+- bash nodesource_setup.sh
+- apt-get install -y nodejs
+- apt-get install -y nodejs
+- node -v
+
+# Copiar conteudo para dentro de um container Docker
+docker container cp . 2162c726ecc8:/app
+# Dentro do container
+    npm install
+    node server.js
+
+Imagem vs Containers
+
+A imagem possui todo (Filesystem) sistema de arquivos necessários para executar o container.
+
+Criar imagens de container, usa uma tecnologia do Linux chamada OverlayFS
+---
+
+### sudo mkdia -p /overlay/primeira_camada/
+
+sudo echo "Arquivo teste na primeira camada" | sudo tee /overlay/primeira_camada/01_camada.txt
+
+sudo echo "Arquivo teste na segunda camada" | sudo tee /overlay/segunda_camada/02_camada.txt
+
+sudo mount -t overlay -o lowerdir=/overlay/primeira_camada/,upperdir=/overlay/segunda_camada/,workdi
+r=/overlay/worker/ overlay /overlay/merge/
+
+---
+
+docker container run -it -p 8080:8080 convert-temp:latest /bin/bash
+
+docker container run -d -p 8080:8080 convert-temp:latest node /app/server.js
+
+docker image history cba60be8930d # Inspeciona as camadas da imagem
+
+docker image inspect cba60be8930d # Inspeciona a imagem com resultado em json
+
+###Dockerfile
+
+docker build -t app-convert-temp . --no-cahe  # Não aproveita o cache das camadas
+
+ docker run --name app-conversao-temperatura -d -p 8080:8080 app-convert-temp
+
+ 

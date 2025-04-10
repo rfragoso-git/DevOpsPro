@@ -1,0 +1,9 @@
+FROM nginx:1.17.6-alpine
+
+RUN apk update && apk add --no-cache --virtual bash curl vim apk-tools python3-dev
+
+COPY index-nginx-color.html /usr/share/nginx/html/index.html
+
+COPY 50x.html /usr/share/nginx/html/50x.html
+
+EXPOSE 8080

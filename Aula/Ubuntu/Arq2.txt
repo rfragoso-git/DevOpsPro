@@ -1,0 +1,1 @@
+Com o ADD podemos também adicionar arquivos compactados, descompactando eles no destino.

@@ -1,0 +1,12 @@
+{
+    "code": "InvalidTemplateDeployment",
+    "message": "A implantação de modelo 'CreateVm-pcloudhosting.nginx-nginx-20240911120131' não é válida de acordo com o procedimento de validação. A ID de rastreamento é '926f468b-0c62-447f-a052-01efa1228218'. Confira os erros internos para obter detalhes.",
+    "details": [
+        {
+            "code": "SecurityRuleParametersMissing",
+            "target": "/subscriptions/303f0cd8-f29e-43de-bce3-65eaf0e3f04a/resourceGroups/rg-devops-pro/providers/Microsoft.Network/networkSecurityGroups/ubuntu-devopspro-nsg",
+            "message": "Os parâmetros de regra de segurança necessários estão ausentes na regra de segurança com ID: /subscriptions/303f0cd8-f29e-43de-bce3-65eaf0e3f04a/resourceGroups/rg-devops-pro/providers/Microsoft.Network/networkSecurityGroups/ubuntu-devopspro-nsg/securityRules/AllowMyIpAddressCustomAnyInbound. A regra de segurança deve especificar SourceAddressPrefixes, SourceAddressPrefix ou SourceApplicationSecurityGroups.",
+            "details": []
+        }
+    ]
+}

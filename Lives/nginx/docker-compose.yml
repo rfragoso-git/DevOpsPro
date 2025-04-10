@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.17.6-alpine
+    container_name: nginx
+    volumes:
+      - ./index-nginx-color.html:/usr/share/nginx/html/index.html
+      - ./50x.html:/usr/share/nginx/html/50x.html
+      - ./404.html:/usr/share/nginx/html/404.html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports: 
+    - "80:80"
+  node-blue:
+    image: rof1966/nginx-color-blue:alpine
+    container_name: node-blue
+    ports:
+      - "80"
+
+  node-orange:
+    image: rof1966/nginx-color-orange:alpine
+    container_name: node-orange
+    ports:
+      - "80"
+  
+  node-green:
+    image: rof1966/nginx-color-green:alpine
+    container_name: node-green
+    ports:
+      - "80"

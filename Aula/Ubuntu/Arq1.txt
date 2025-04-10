@@ -1,0 +1,1 @@
+Com o ADD você pode anexar algum conteúdo, repositório de projeto, arquivo remoto que precise ser copiado.

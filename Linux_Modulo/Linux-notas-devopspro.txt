@@ -1,0 +1,94 @@
+# Aula s/ Linux
+
+Sistema Operacional - Kernel gerenciados - Bibliotecas - Aplicativos
+Windows - Linux - Apple
+
+KERNEL = Linux - criado 1991 por Linus Torvalds mais utilizado em computação Cloud e Containers
+LIBRARY = Por exemplo KDE - Gerenciador de janelas
+APP = Pacotes 
+
+Distribuições Linux
+- Principais Debian, Red Hat e Suse - Principalmente em Servidores
+- Derivadas das Principais como Ubuntu, Fedora e Pop_OS - Principal uso Desktop
+
+Sistema de arquivos Linux
+/ = É a estrutura principal do disretórios
+* Em Linux os comandos são baseados em arquivos!
+/home = Onde fica os diretorios de trabalho do usuário
+/root = É o diretorio do super usuário
+/bin = Onde ficam os principais comandos Linux, exemplo cat, su, rm, pwd e etc.
+/lib = Onde ficam as principais bibliotecas compartilhadas pelos programas e kernel
+/usr = Onde ficam a maioria dos programas instalados
+/boot = Ficam os arquivos estáaticos de gerenciamento do sistema operacional
+/etc = São os arquivos de configuração do sistema e scripts de inicialização. Os dados do S.O. cat /etc/os-release
+/proc = Diretório virtual do sistema
+/sbin = Diretório de programas usados pelo super usuário root, para administração do sistema.
+/tmp = Arquivos temporário
+/var = Dados variáveis como Logs, dados de administração, login e arquivos transitórios
+/opt = Aplicativos adicionias e pacotes de softwares
+/dev = Arquivos de dispositivos periféricos
+/mnt = ponto de montagem onde é feita a montagem de sistema de arquivos
+
+cd /
+/ diretorio principal do Linux
+ls => exibe os subdiretórios principais
+boot/ => tem todos os arquivos responsáveis pela inicialização do S.O.
+bin/ => tem os principais programas utilizados pelo Linux
+proc/ => É um diretório criado pelo Kernel Linux, cria pastas com mesmo nome do PIDs, referente aos processos que estão rodando.
+
+ldd /bin/bash # mostra as dependencias de um programa suas bibliotecas
+
+ps -aux # Exibe os processo em execução
+
+# unshare --pid ou --network ou --user
+
+sudo unshare --pid --fork --mount-proc /bin/bash # Isolamento de ambiente, tipo namespace
+
+ps -ef --forest # Exibir arvore de diretórios
+
+sudo chroot . # Isolamento a nível de sistema de arquivos, usando o comando informo que a partir daquele diretório será o meu raiz
+
+sudo apt update -y && sudo apt install debootstrap # Instala todo o sistema de arquivos de uma distribuição para um diretório, as dependências
+
+sudo deboostrap jammy . # baixar a estrutura de diretórios do Ubuntu no diretorio corrente
+
+ps
+
+mount-proc -t proc proc /proc
+
+sudo unshare --pid --fork --mount-proc chroot . /bin/bash 
+
+while true; do echo "Teste"; done # Forçar um processo
+
+
+ls /sys/fs/cgroup/ # Exibe todas as configurações do CGroups
+
+echo "+cpu" >> /sys/fs/cgroup/cgroup.subtree_control # Habilitar novos controladores, pra criação de um controlador filho
+
+echo "+cpuset" >> /sys/fs/cgroup/cgroup.subtree_control
+
+echo "+cpu" >> /sys/fs/cgroup/devopsdocker/cgroup.subtree_control
+
+PID 20247
+
+echo "20247" >> /sys/fs/cgroup/devopsdocker/cgroup.procs # Difine qual o PUD do processo sera configurada a utilização de CPU
+
+echo "1" >> /sys/fs/cgroup/devopsdocker/cpuset.cpus # Define qual o processador CPU a ser utlizado.
+
+echo "750000 1000000" >> /sys/fs/cgroup/devopsdocker/cpu.max # Limitando a utlização da CPU em 75%
+
+## Docker
+
+Docker Daemon foi alterado para microserviços
+
+Saiu o LXC e foi craido o ContainerD (Mesmo do Kubernetes)
+
+Abaixo o ContainerD tem o criador de containers "runc". O runc é iliminado após a criação do container.
+
+O "Shim" é o processo pai, que gerencia os containers, esta acima do "runc"
+
+
+
+
+
+

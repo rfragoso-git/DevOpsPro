@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  db:
+    image: rof1966/postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: rfragoso1966
+      POSTGRES_USER: rfragoso
+      POSTGRES_DB: db-aula
+    
+    ports:
+      - 5432:5432
