@@ -1,3 +1,5 @@
 Teste pull / push Github
 
 Teste envio Windows OK recebimento Linux OK
+
+Teste recebido do Linux via Vscode
