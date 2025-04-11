@@ -96,9 +96,9 @@ r=/overlay/worker/ overlay /overlay/merge/
 
 ---
 
-docker container run -it -p 8080:8080 convert-temp:latest /bin/bash
+docker container run -it -p 8080:8080 convert-temp:latest /bin/bash # -it temnial /bin/bash
 
-docker container run -d -p 8080:8080 convert-temp:latest node /app/server.js
+docker container run -d -p 8080:8080 convert-temp:latest node /app/server.js # -d roda em segundo plano
 
 docker image history cba60be8930d # Inspeciona as camadas da imagem
 
@@ -108,6 +108,10 @@ docker image inspect cba60be8930d # Inspeciona a imagem com resultado em json
 
 docker build -t app-convert-temp . --no-cahe  # Não aproveita o cache das camadas
 
- docker run --name app-conversao-temperatura -d -p 8080:8080 app-convert-temp
+docker run --name app-conversao-temperatura -d -p 8080:8080 app-convert-temp
 
- 
+docker container inspect bcf2a9300c36 # Verifica as informação do json de criação do container
+
+docker run -it --name aula-docker --env VLR_DOCKER_ENV=" Novo valor é Kubernetes!" ubuntu-aula /bin/bash # ENV adiona uma variável de ambiente
+
+docker build --build-arg VAR_MSG="Novo valor de AGR" -t ubuntu-aula . # ARG adicionar parâmetros na minha imagem

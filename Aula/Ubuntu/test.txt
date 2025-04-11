@@ -1,0 +1,1 @@
+Arquivo para efetuar teste da função COPY do arquivo Dockerfile
