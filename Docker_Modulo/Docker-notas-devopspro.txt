@@ -115,3 +115,6 @@ docker container inspect bcf2a9300c36 # Verifica as informação do json de cria
 docker run -it --name aula-docker --env VLR_DOCKER_ENV=" Novo valor é Kubernetes!" ubuntu-aula /bin/bash # ENV adiona uma variável de ambiente
 
 docker build --build-arg VAR_MSG="Novo valor de AGR" -t ubuntu-aula . # ARG adicionar parâmetros na minha imagem
+
+docker run -it --name aula-docker -P ubuntu-aula /bin/bash # E_P expoões todos as portas, atribuindo uma automaticamente
+
