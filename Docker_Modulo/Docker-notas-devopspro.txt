@@ -121,3 +121,5 @@ docker build --build-arg VAR_MSG="Novo valor de AGR" -t ubuntu-aula . # ARG adic
 docker run -it --name aula-docker -P ubuntu-aula /bin/bash # E_P expoões todos as portas, atribuindo uma automaticamente
 
 docker run -it --entrypoint "/bin/bash" ubuntu-aula
+
+docker commit 389f8fdcd16a convert-temp-commit
