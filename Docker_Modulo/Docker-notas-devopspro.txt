@@ -128,4 +128,23 @@ docker tag convert-temp:latest rof1966/convert-temp:v1
 
 docker push rof1966/convert-temp:latest
 
-teste
+
+### Multistage Build de imagens Docker
+
+# tipo de linguagens de programação:
+- Interpretadas <=> código => interpretador => aplicação (NodeJS, Python, PHP, Javascript, Ruby)
+
+- Compildas <=> código => compilação (SDK) => criação do arquivo binário  => executar binário da aplicação ( GO, C, C++, Rust, Swift, Fortran, Pascal)
+    linguagens compiladas são mais eficiente
+
+- Hibrida de Interpretadas e Compildas <=> código => compilação => linguagem intermediária IL => Interpretador => Aplicação (Java, donet Core)
+
+# tecnologias de Frontend tb podem se utlizar de Multistage Build
+- Angular
+- React
+
+código => arquivos Estáticos (html ,css) => servidor web (IIS, nginx)
+
+docker build -t rof1966/app_golang:v1 -f Dockerfile.nome .
+
+docker history nro-image # Verifica todas as camadas da imagem
