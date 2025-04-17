@@ -1,0 +1,15 @@
+FROM golang:1.20
+
+WORKDIR /app
+
+COPY main.go .
+
+RUN go mod init app_golang
+
+RUN go build -o main .
+
+CMD ["./main"]
+
+EXPOSE 8080
+
+# Imagem final sem multistage build 914MB.

@@ -1,0 +1,13 @@
+# Ignore the app.zip file that is created by the build process
+# Ignore the Dockerfile-golang and Dockerfile-multistage files
+# Ignore the go1.20.5.linux-amd64.tar.gz file that is created by the build process
+# Ignore the app.zip:Zone.Identifier file that is created by the build process
+# Ignore the .DS_Store file that is created by the build process
+# Ignore the .git directory
+app.zip
+Dockerfile-golang
+Dockerfile-multistage
+go1.20.5.linux-amd64.tar.gz
+app.zip:Zone.Identifier
+.dockerignore
+  
