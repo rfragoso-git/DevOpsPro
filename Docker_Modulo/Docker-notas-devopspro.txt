@@ -127,3 +127,5 @@ docker commit 389f8fdcd16a convert-temp-commit
 docker tag convert-temp:latest rof1966/convert-temp:v1
 
 docker push rof1966/convert-temp:latest
+
+teste

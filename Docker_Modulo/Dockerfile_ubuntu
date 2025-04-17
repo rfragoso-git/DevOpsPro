@@ -1,0 +1,24 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    apt-get install curl --yes && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh && \
+    bash nodesource_setup.sh && \ 
+    apt-get update --yes && \     
+    apt-get install nodejs --yes
+
+RUN adduser app
+
+WORKDIR /app/src
+
+COPY --chown=app:app --chmod=755 src/  .
+
+RUN npm install
+
+EXPOSE 8080
+
+USER app
+
+CMD [ "node", "server.js" ]
+
+# Imagem c/ 217MB
