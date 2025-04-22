@@ -148,3 +148,18 @@ código => arquivos Estáticos (html ,css) => servidor web (IIS, nginx)
 docker build -t rof1966/app_golang:v1 -f Dockerfile.nome .
 
 docker history nro-image # Verifica todas as camadas da imagem
+
+### volumes
+
+Aplicações Stateless => não perssistem informações, executam processos e não armazenam dados, nem um arquivo, 
+exemplos: Aplicações WEB, Workers processando serviço de mensageria.
+
+Aplicações Statefull => são aplicações que perssistem dados. exemplos: Banco de dados, Servidores FTP, S3, Blob
+
+# O Docker possui três tios de volumes:
+- bind
+- volume
+- tmpfs
+- drivers
+
+docker container run -it --mount type=bind,source="$(phd)/Volume",target=/app ubuntu:20.04 /bin/bash
