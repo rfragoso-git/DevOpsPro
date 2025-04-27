@@ -163,3 +163,5 @@ Aplicações Statefull => são aplicações que perssistem dados. exemplos: Banc
 - drivers
 
 docker container run -it --mount type=bind,source="$(phd)/Volume",target=/app ubuntu:20.04 /bin/bash
+
+docker container run -d -p 8080:80 -v $(pwd)/nginx:/usr/share/nginx/html  nginx:stable-alpine
