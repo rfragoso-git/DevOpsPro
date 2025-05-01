@@ -179,3 +179,35 @@ docker container run --volumes-from 7b90fca821ae --rm -v $(pwd):/backup ubuntu:2
 docker container run -v $(pwd):/backup -v data_vol:/app ubuntu:20.04 tar xvf /backup/bkp_vol.tar # Restaurar um bkp em outro volume
 
 docker container run -it -v data_vol:/app ubuntu:20.04 /bin/bash # Execuntando novo container e acessando o volume
+
+### Volume + Database Postgresql
+
+$ docker run --name user-postgres -e POSTGRES_PASSWORD=0l1ve1R@1966 -d postgres
+
+$ docker run -it --rm --network data-network postgres psql -h some-postgres -U postgres
+
+$ docker run -d \
+	--name devops-postgres -p 5432 \
+	-e POSTGRES_PASSWORD=0l1ve1R@1966 \
+	-e PGDATA=/var/lib/postgresql/data/pgdata \
+	-v $(pwd)/data:/var/lib/postgresql/data \
+	postgres
+
+
+docker run -d -p 5432:5432 \
+    -e POSTGRES_USER=postgres \
+	-e POSTGRES_PASSWORD=0l1ve1R@1966 \
+	--mount type=bind,source="$(pwd)/db_vol_data",target=/var/lib/postgresql/data \
+	postgres
+
+docker exec -it <nome_do_container> psql -U postgres
+
+# psql -U nome_do_usuario -d nome_do_banco
+
+docker run -d -p 5432:5432 \
+    -e POSTGRES_USER=postgres \
+	-e POSTGRES_PASSWORD=0l1ve1R@1966 \
+	--mount type=volume,source=postgres_vol_data,target=/var/lib/postgresql/data \
+	postgres
+
+
