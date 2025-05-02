@@ -217,3 +217,10 @@ docker container run -ti --mount type=tmpfs,target=/app ubuntu:20.04 /bin/bash
 docker container run -d -p 3306:3306 --tmpfs /var/lib/mysql -e MYSQL_ROOT_PASSWORD=rootpwd mysql
 
 *** OverlayFS sistema gerenciamento de arquivos do Docker
+
+docker container run -d -p 5432:5432 \
+-e POSTGRES_DB=kubedevnews \
+-e POSTGRES_USER=kubedevnews \
+-e POSTGRES_PASSWORD=Pg#123 \
+-v kubenews_vol:/var/lib/postgresql/data \
+postgres
