@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-    apt-get install curl --yes && \
+    apt-get install curl postgresql-client --yes && \
     curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && \ 
     apt-get update --yes && \     

@@ -221,6 +221,44 @@ docker container run -d -p 3306:3306 --tmpfs /var/lib/mysql -e MYSQL_ROOT_PASSWO
 docker container run -d -p 5432:5432 \
 -e POSTGRES_DB=kubedevnews \
 -e POSTGRES_USER=kubedevnews \
--e POSTGRES_PASSWORD=Pg#123 \
+-e POSTGRES_PASSWORD=Pg123 \
 -v kubenews_vol:/var/lib/postgresql/data \
 postgres
+
+### Networke
+
+libnetwork = é modulo utilizado como base para o Docker Daemon
+
+CNM = Container Networke Module
+
+Sandbox é o isolamento da camada de network, dentro temos todos os elementos, ele é como um dispositivo de rede.
+
+Endpoint é a interface virtual de rede, que é vinculado ao Sandbox. Tem a função de conectar o container a network.
+
+Tipos de network:
+
+- Bridge = conectar varios containers na mesma network, só funciona com IP
+- None = nenhuma network conectada ao container, mantendo ele isolado.
+- Host = conecta o container a mesma network da maquina local
+- MacVLan = conecta o container a uma rede física
+- overlay = utilizado para trabalhar com diversos hosts formando um cluster
+
+# docker network connect my_network nome_do_container ou id_container
+
+# docker network diconnect my_network nome_do_container ou id_container
+
+
+docker container run -d -p 5432:5432 \
+-e POSTGRES_DB=postgres \
+-e POSTGRES_USER=postgres \
+-e POSTGRES_PASSWORD=Pg123 \
+-v new_vol:/var/lib/postgresql/data \
+postgres
+
+# ubuntu = apt install postgresql-client
+
+# CIDR - 
+
+docker network create --subnet=10.0.0.0/16 --gateway=10.0.0.1 my_network_cidr
+
+# Alterar configuração rede Docker /etc/docker/  arquivo daemon.json
