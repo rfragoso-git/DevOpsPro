@@ -262,3 +262,22 @@ postgres
 docker network create --subnet=10.0.0.0/16 --gateway=10.0.0.1 my_network_cidr
 
 # Alterar configuração rede Docker /etc/docker/  arquivo daemon.json
+
+Linux cmds = (bridge link, ap address, )
+
+# Rede  do tipo Bridge criar interfaces virtuias (vth0X)  que se conectam a rede local
+
+# Rede do tipo host (eth0) fica liga diretamente a rede local, não utiliza o portbind
+
+# Rede do tipo none isola completamente o container, fica sem intrface de rede. Caso de uso transformação de arquivo com volume compartilhado.
+
+# Linux - arquivo hosts /etc/hosts
+
+docker container run -it --add-host renatofragoso.com:192.168.170.242 ubuntu-vol /bin/bash
+# --add-host inserindo um DNS local
+
+Linux: echo "192.168.170.242 renatofragoso.com" | sudo tee -a /etc/hosts
+
+Windows: Add-Content -Path "C:\Windows\System32\drivers\etc\hosts" -Value "192.168.170.242 renatofragoso.com"
+Invoke-WebRequest -Uri https://example.com
+C:\Windows\System32\drivers\etc\hosts
