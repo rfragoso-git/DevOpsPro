@@ -219,10 +219,11 @@ docker container run -d -p 3306:3306 --tmpfs /var/lib/mysql -e MYSQL_ROOT_PASSWO
 *** OverlayFS sistema gerenciamento de arquivos do Docker
 
 docker container run -d -p 5432:5432 \
+--network 
 -e POSTGRES_DB=kubedevnews \
 -e POSTGRES_USER=kubedevnews \
 -e POSTGRES_PASSWORD=Pg123 \
--v kubenews_vol:/var/lib/postgresql/data \
+-v kubenews_data:/var/lib/postgresql/data \
 postgres
 
 ### Networke
@@ -238,10 +239,16 @@ Endpoint é a interface virtual de rede, que é vinculado ao Sandbox. Tem a fun�
 Tipos de network:
 
 - Bridge = conectar varios containers na mesma network, só funciona com IP
-- None = nenhuma network conectada ao container, mantendo ele isolado.
+- Null = nunhuma network conectada ao container, mantendo ele isolado.
 - Host = conecta o container a mesma network da maquina local
 - MacVLan = conecta o container a uma rede física
 - overlay = utilizado para trabalhar com diversos hosts formando um cluster
+
+docker network create -d bridge my_net_bridge
+
+docker network create -d macvlan my_net_macvlan # -d para o drive
+
+# Redes do tipo host e null só pode existir uma
 
 # docker network connect my_network nome_do_container ou id_container
 
@@ -281,3 +288,25 @@ Linux: echo "192.168.170.242 renatofragoso.com" | sudo tee -a /etc/hosts
 Windows: Add-Content -Path "C:\Windows\System32\drivers\etc\hosts" -Value "192.168.170.242 renatofragoso.com"
 Invoke-WebRequest -Uri https://example.com
 C:\Windows\System32\drivers\etc\hosts
+
+### Criando aplicação completamente em Docker
+
+docker network create -d bridge kubenews_net
+
+docker container run -d -p 5432:5432 \
+--name kubedevnews_db \
+-e POSTGRES_DB=kubedevnews \
+-e POSTGRES_USER=kubedevnews \
+-e POSTGRES_PASSWORD=Pg123 \
+--network kubenews_net \
+-v kubenews_data:/var/lib/postgresql/data \
+postgres
+
+docker container run -d -p 8080:8080 \
+--name app_kubenews \
+-e DB_DATABASE=kubedevnews \
+-e DB_USERNAME=kubedevnews \
+-e DB_PASSWORD=Pg123 \
+-e DB_HOST=kubedevnews_db \
+--network kubenews_net \
+rof1966/kube-news-hml:v1
