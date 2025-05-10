@@ -3,7 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-/home/rfragoso/DevOpsPro/conversao-temperatura
+conversao-temperatura/
+kube-news/
 
 # User-specific files
 *.rsuser
