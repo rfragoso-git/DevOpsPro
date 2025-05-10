@@ -310,3 +310,15 @@ docker container run -d -p 8080:8080 \
 -e DB_HOST=kubedevnews_db \
 --network kubenews_net \
 rof1966/kube-news-hml:v2
+
+docker container run -d -p 5432:5432 \
+--name kubedevnews_db \
+-e POSTGRES_PASSWORD=Pg123 \
+--network kubenews_net \
+rof1966/postgres-alpine-kubenews:v1
+
+### Docker Compose
+
+v1 cli docker-compose --version
+v2 cl1 docekr compose version
+
