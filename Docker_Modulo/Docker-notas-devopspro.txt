@@ -322,3 +322,5 @@ rof1966/postgres-alpine-kubenews:v1
 v1 cli docker-compose --version
 v2 cl1 docekr compose version
 
+*** Ferramenta Kompose converte arquivos compose para manifesto Kubernetes ***
+
