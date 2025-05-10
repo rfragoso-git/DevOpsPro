@@ -309,4 +309,4 @@ docker container run -d -p 8080:8080 \
 -e DB_PASSWORD=Pg123 \
 -e DB_HOST=kubedevnews_db \
 --network kubenews_net \
-rof1966/kube-news-hml:v1
+rof1966/kube-news-hml:v2
