@@ -1,0 +1,10 @@
+services:
+  my-site:
+    image: rof1966/nginx-color:red
+    network_mode: "host"
+  new_site:
+    image: rof1966/nginx-color-orange:latest
+    ports:
+      - "8080:80"
+    extra_hosts:
+      nginx-site.rofragoso.com: "192.168.170.242"

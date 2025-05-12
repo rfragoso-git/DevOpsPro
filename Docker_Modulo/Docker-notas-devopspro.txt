@@ -332,4 +332,6 @@ docker compose stop
 
 docker compose up -d --remove-orphans
 
+docker compose -f compose.yaml up -d
+
 
