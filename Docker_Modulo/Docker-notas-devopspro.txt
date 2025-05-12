@@ -334,4 +334,7 @@ docker compose up -d --remove-orphans
 
 docker compose -f compose.yaml up -d
 
+docker compose up -d --build
+
+docker compose push # Sobe a imagem criada no builld
 
