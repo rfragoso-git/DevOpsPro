@@ -1,0 +1,9 @@
+services:
+  nginx:
+    container_name: my_site
+    image: nginx:alpine
+    ports:
+      - "8585:80"
+    # command: 
+    #   - echo
+    #   - "Hello World"

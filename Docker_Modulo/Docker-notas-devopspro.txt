@@ -324,3 +324,12 @@ v2 cl1 docekr compose version
 
 *** Ferramenta Kompose converte arquivos compose para manifesto Kubernetes ***
 
+docker compose up -d
+
+docker compose down
+
+docker compose stop
+
+docker compose up -d --remove-orphans
+
+
