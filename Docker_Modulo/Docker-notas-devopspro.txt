@@ -339,3 +339,7 @@ docker compose up -d --build
 docker compose push # Sobe a imagem criada no builld
 
 docker compose --env-file hml.env up -d # Se utlizar só o .env não precisar usar --env-file
+
+docker compose --env-file hml.env config # Exibe as configurações 
+
+docker compose --env-file hml.env build # Constroi a imagem sem executar
