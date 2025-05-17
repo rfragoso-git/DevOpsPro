@@ -320,7 +320,7 @@ rof1966/postgres-alpine-kubenews:v1
 ### Docker Compose
 
 v1 cli docker-compose --version
-v2 cl1 docekr compose version
+v2 cl1 docker compose version
 
 *** Ferramenta Kompose converte arquivos compose para manifesto Kubernetes ***
 
@@ -330,7 +330,7 @@ docker compose down
 
 docker compose stop
 
-docker compose up -d --remove-orphans
+docker compose up -d --remove-orphans # Para remover containers que possam ter ficado no projeto da aplicação
 
 docker compose -f compose.yaml up -d
 
@@ -343,3 +343,24 @@ docker compose --env-file hml.env up -d # Se utlizar só o .env não precisar us
 docker compose --env-file hml.env config # Exibe as configurações 
 
 docker compose --env-file hml.env build # Constroi a imagem sem executar
+
+docker compose config # Executa sem build, assim dá para verificar erros e como ficará o deploy
+
+# Profiles = só executa se informado o Profiles
+
+docker compose --profile dev up -d --build
+
+docker compose --profile dev down
+
+docker compose ps # Listar todos os container em execução que fazem parte do compose
+
+docker compose logs # Mostra todos os logs do seu compose
+
+docker compose logs postgres # Vai exibir os logs do serviço especificado
+
+docker compose exec kube-news ls # Importante para verificar quais arquivos foram coiados para aplicação
+
+docker compose pull # Baxa as imagens do compose localmente deixando mais eficiente a construção
+
+### Troubleshooting  Docker
+    
