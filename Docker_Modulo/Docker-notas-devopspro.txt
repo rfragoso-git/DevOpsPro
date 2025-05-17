@@ -363,4 +363,29 @@ docker compose exec kube-news ls # Importante para verificar quais arquivos fora
 docker compose pull # Baxa as imagens do compose localmente deixando mais eficiente a construção
 
 ### Troubleshooting  Docker
-    
+
+docker info # Trás informações do Docker e do sistema operacional
+
+docker events # Mostra todos eventos
+
+docker events --since 8h # Mostra os eventos a partir do horário solicitado
+
+docker events --until 30m # Mostra os evento até o período configurado
+
+docker events --filter event=create --since 8h # Filtrando eventos e combinando com tempo
+
+docker events --filter type=image --event=create # Fitrar pelo tipo e é possível combinar com eventos
+
+docker events --filter events=create --filter type=image --since 24h # Combinando dois tipos de filtros
+
+docker container logs 4a02c3cbb76d # Exibe os logs do container em execução
+
+docker container logs --follow 4a02c3cbb76d # Exibe continuamente os logs do container em execução
+
+docker container logs --since 1m 4a02c3cbb76d # Exibe continuamente os logs do container em execução
+
+docker container logs --until 1m 4a02c3cbb76d # Exibe continuamente os logs do container em execução
+
+docker container logs --since '2025-05-17T22:12Z' 4a02c3cbb76d # Exibindo a partir de uma data/hora
+
+docker container logs --tail 3  4a02c3cbb76d # Exibe as 3 últimas linhas
