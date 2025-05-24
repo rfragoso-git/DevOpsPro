@@ -389,3 +389,11 @@ docker container logs --until 1m 4a02c3cbb76d # Exibe continuamente os logs do c
 docker container logs --since '2025-05-17T22:12Z' 4a02c3cbb76d # Exibindo a partir de uma data/hora
 
 docker container logs --tail 3  4a02c3cbb76d # Exibe as 3 últimas linhas
+
+docker container top 7b27dd1590a0 # Mostra todos os porocessos em execução no container
+
+docker container stats --no-stream 7b27dd1590a0 # Mostra o consumo de recursos CPU e Memoria do container
+
+docker container stats --no-trunc # Exibe o consumo de todos os containers de uma forma mais amigável
+
+docker container exec 7b27dd1590a0 ls -la # Executa comandos, exemplo ls -la diretamente no container selecionado
