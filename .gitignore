@@ -3,9 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-/home/rfragoso/DevOpsPro/kube-news
-/home/rfragoso/DevOpsPro/conversao-temperatura
-/home/rfragoso/DevOpsPro/simulador-do-caos
+kube-news/** */
+conversao-temperatura/** */
+simulador-do-caos/** */
 
 # User-specific f/iles
 *.rsuser
