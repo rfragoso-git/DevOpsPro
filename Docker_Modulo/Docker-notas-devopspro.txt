@@ -397,3 +397,15 @@ docker container stats --no-stream 7b27dd1590a0 # Mostra o consumo de recursos C
 docker container stats --no-trunc # Exibe o consumo de todos os containers de uma forma mais amigável
 
 docker container exec 7b27dd1590a0 ls -la # Executa comandos, exemplo ls -la diretamente no container selecionado
+
+** docker systemctl stop docker
+
+** docker systemctl start docker
+
+### Ações de resiliência para o docker
+
+docker container run -d -p 8080:3000 --restart=on-failure app-caos
+
+watch 'docker container ls -a'
+
+docker container run -d -p 8080:3000 --restart=on-failure:3 app-caos
