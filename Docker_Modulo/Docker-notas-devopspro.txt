@@ -404,8 +404,12 @@ docker container exec 7b27dd1590a0 ls -la # Executa comandos, exemplo ls -la dir
 
 ### Ações de resiliência para o docker
 
-docker container run -d -p 8080:3000 --restart=on-failure app-caos
+docker container run -d -p 8080:3000 --restart=on-failure app-caos # Restart indefinidamente confome configurado --restart=on-failure
 
 watch 'docker container ls -a'
 
-docker container run -d -p 8080:3000 --restart=on-failure:3 app-caos
+docker container run -d -p 8080:3000 --restart=on-failure:3 app-caos  # Restart apenas 3 confome configurado --restart=on-failure:3
+
+docker container run -d -p 8080:3000 --restart=unless-stopped app-caos # Vai executar sempr ao menos que dê o stopped no container
+
+docker container run -d -p 8080:3000 --restart=always app-caos
