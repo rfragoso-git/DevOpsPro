@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    container_name: app-caos-web
+    image: rof1966/app-caos:latest
+    restart: always
+    ports:
+      - 8081:3000
+    
+    
