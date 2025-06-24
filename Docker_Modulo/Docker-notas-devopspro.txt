@@ -413,3 +413,15 @@ docker container run -d -p 8080:3000 --restart=on-failure:3 app-caos  # Restart 
 docker container run -d -p 8080:3000 --restart=unless-stopped app-caos # Vai executar sempr ao menos que dê o stopped no container
 
 docker container run -d -p 8080:3000 --restart=always app-caos
+
+docker container run -d -p 8080:3000 --health-cmd "curl -f http://localhost:3000/health" --health-timeout 5s --health-retries 3 --health-interval 10s --health-start-period 20s app-caos
+
+Processos n => Quantum de tempo => CPU
+
+docker status # Verifica o consumo de cpu e memória
+
+docker container run -d -p 8080:3000 --cpu-period=100000 --cpu-quota=50000 app-caos # Distribui o consumo de CPU entre os nucleos
+
+docker container run -d -p 8080:3000 --cpu-period=100000 --cpu-quota=50000 --cpusets-cpus=0 app-caos # Atribui o consumo de CPU em um unico no nucleo, o de número zero
+
+docker container run -d -p 8080:3000 --cpus=0.5 --cpuset-cpus=0-1 app-caos # Melhor forma para especificar a quantidade e quais nucleos podem ser usados
