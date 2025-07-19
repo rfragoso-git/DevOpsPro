@@ -425,3 +425,16 @@ docker container run -d -p 8080:3000 --cpu-period=100000 --cpu-quota=50000 app-c
 docker container run -d -p 8080:3000 --cpu-period=100000 --cpu-quota=50000 --cpusets-cpus=0 app-caos # Atribui o consumo de CPU em um unico no nucleo, o de número zero
 
 docker container run -d -p 8080:3000 --cpus=0.5 --cpuset-cpus=0-1 app-caos # Melhor forma para especificar a quantidade e quais nucleos podem ser usados
+
+
+## Especificando uso de memória RAM rof1966/app-caos
+
+docker container run -d -p 8080:3000 --memory=64M
+
+# Código de erro 137 out-of-memory (OOM). This means the process tried to use more memory than was allocated to it, and the system's OOM killer
+
+docker container run -d -p 8080:3000 --memory=64M --memory-swap=128M  rof1966/app-caos
+
+# Memoria swap tem somar com a memória RAM desejada, por exemplo 50 RAM + 50 SWAP = 100M
+### Ambiente de cloud não tem memória SWAP !!!
+

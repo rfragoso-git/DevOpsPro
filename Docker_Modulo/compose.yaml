@@ -11,5 +11,13 @@ services:
       interval: 15s
       timeout: 10s
       retries: 3
-      start_period: 15s    
+      start_period: 15s
+    # cpusets: "0-1" não recomendado o uso, somente em casos especificos
+    memswap_limit: 512m
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    
     
