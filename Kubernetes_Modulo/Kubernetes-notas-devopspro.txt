@@ -1,0 +1,28 @@
+## Aulas
+
+Orquestrador de containers: 
+
+Arquitetura de Microserviços / Arquitetura Cloud
+- Ter ambiente ser escalável de forma horizontal (escalabilidade) e vertical
+- Ter contingência e resiliência, recurso de self-reading
+- Ponto único de controle e gestão das replicas, fazendo o balanceamento entre as replcias,
+ direcionando as requisições (Service Discovery) armazenamento de dados sensíveis de conexão (DB), chaves de criptogtafia
+
+Exemplos de Orquestradores:
+- Docker Swarm (Não recomendado para cenários complexos)
+- Apache Mesos (Abstrador de recursos para gerenciamento de recursos computacionais como CPU, Memória, Storage)
+- Marathon (Trabalaha junto com o Apache Mesos, baixa aderencia no mercado)
+- Hashcorp Nomad (Boa plataforma, mas também com baixa adesão do mercado)
+- Red Hat Openshift
+- Serviços de orquestração nos clouds providers
+     Azure App Service
+     Azure containers Service
+     Azure containers instance
+     ARO
+     AWS Stalker
+     AWS Elastic containers Service
+     ROSA
+     Google Cloud Run     
+- Kubernetes (Criado pelo Google 2015 - SRE - Site Reliability Engineering)
+
+VMs x Cluster Kubernetes
