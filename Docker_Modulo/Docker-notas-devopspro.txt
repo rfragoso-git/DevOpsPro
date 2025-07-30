@@ -438,3 +438,16 @@ docker container run -d -p 8080:3000 --memory=64M --memory-swap=128M  rof1966/ap
 # Memoria swap tem somar com a memória RAM desejada, por exemplo 50 RAM + 50 SWAP = 100M
 ### Ambiente de cloud não tem memória SWAP !!!
 
+### Vulnerabilidade e Qualidade do código
+
+- Ferramenta Docker Scout = verifica a qualidade e vulnerabilidades da imagem
+
+docker scout quickview rof1966/imagem-vulner:v1 - avaliação local da imagem
+
+docker scout cves rof1966/imagem-vulner:v1 - verifica as vulnerabilidades da imagem
+
+docker scout cves --format markdown rof1966/imagem-vulner:v1 - ajustando o formato de saida do arquivo
+
+docker scout quickview fs://. - verifica as vulnerabilidades do código
+
+docker scout repo enable --org rof1966 rof1966/mysite-nginx 

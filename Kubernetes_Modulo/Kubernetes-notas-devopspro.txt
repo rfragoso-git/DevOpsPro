@@ -26,3 +26,51 @@ Exemplos de Orquestradores:
 - Kubernetes (Criado pelo Google 2015 - SRE - Site Reliability Engineering)
 
 VMs x Cluster Kubernetes
+
+CNCF- Cloud Native Computing Foundation
+- Consultar projetos e ferramentas
+
+Certificados pra empresas 
+*** Verificar se o Orquestrdor tem certificado  "Certified Kubernetes Software Conformance"
+
+Certificados para profissionais
+*** CKAD - Certified Kubernetes Application Developer
+*** CKA - Certified Kubernetes Administrator
+*** CKS - Certified Kubernetes Security Specialist
+
+Eventos
+
+#KubeCon
+#CloudNativeCon
+
+Kubernetes Communit Day - KCD Brasil
+
+Arquitetura Kubernetes
+- Cluster Kubernetes 
+ - Cada instance pode assumir um dos dois papeis de controle plane, ou worker node
+ 
+
+ *** O cluster Kubernetes possui vários controladores, estes tem responsabilidades distintas, em áreas e setores específicos,
+  gerenciando os diversos elementos e recursos. Exemplo: ReplicaSet definie e controla o número de replcias definidos pela aplicação.
+  Node-controller vai gerenciar o número de nós do meu cluster
+
+controle plane
+     controller manager = gerenciamento dos controladores do Kubernetes
+     api service = faz todas a comunicação entre os elementos do cluster kubernetes (Kubectl)
+     scheduler = define onde será execuntado o container (POD)
+     etc = banco de dados do tipo chave <> valor (acesso só via api service)
+
+Worker node
+     kube-proxy = responsável por toda comunicação de rede dos elementos Kubernetes
+     kubelet = responsável por executar o container e se comunicar com o  container runtime, verifica a saúde do container
+
+Elementos que apoiam a Arquitetura Kubebernetes - Interfaces de comunicação entre os elementos:
+
+CRI - Container Runtime Interface = faz processo de excução entre o container runtime e o kubernetes. (ContainerD, CRI-O)
+CNI - Container Network Interface = faf a comunicação de redes entre os containers fornecendo ips (WaveNet, Calico, Flannel)
+CSI - Container Storage Interface = faz a gestão de softeare de terceiro para armazenamento (AWS, Google, Azure)
+
+Os 3 tipo de cluster Kubernetes
+- On-premises
+- Cloud providers 
+- Local Setup (Minikube, K3D e Kind) Curso (K3D e Kind) KIND mais próximo
