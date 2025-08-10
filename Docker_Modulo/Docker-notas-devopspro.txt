@@ -442,6 +442,10 @@ docker container run -d -p 8080:3000 --memory=64M --memory-swap=128M  rof1966/ap
 
 - Ferramenta Docker Scout = verifica a qualidade e vulnerabilidades da imagem
 
+docker build -t rof1966/imagem-vulner:v1
+
+docker container run -d -p 8080:8080 rof1966/imagem-vulner:v1
+
 docker scout quickview rof1966/imagem-vulner:v1 - avaliação local da imagem
 
 docker scout cves rof1966/imagem-vulner:v1 - verifica as vulnerabilidades da imagem
@@ -450,4 +454,28 @@ docker scout cves --format markdown rof1966/imagem-vulner:v1 - ajustando o forma
 
 docker scout quickview fs://. - verifica as vulnerabilidades do código
 
-docker scout repo enable --org rof1966 rof1966/mysite-nginx 
+docker scout repo enable --org rof1966 rof1966/mysite-nginx - inserir repo remoto ao serviço docekr scout
+
+docker scout recommendations rof1966/imagem-vulner:v1
+
+docker build -t rof1966/imagem-vulner:v1 -f Dockerfile_old .
+
+docker scout compare --to rof1966/imagem-vulner:v1 rof1966/imagem-vulner:v5
+
+### SBOM - Software Build Off Machine
+
+docker scout sbom rof1966/imagem-vulner:v1
+
+docker scout sbom --format list rof1966/imagem-vulner:v1
+
+### TRIVY
+
+trivy image rof1966/imagem-vulner:latest (scaneamento padrão)
+
+trivy image --scanners vuln,misconfig,secret,license rof1966/imagem-vulner:latest (scaneamento completo)
+
+### Node
+
+npm install
+
+npm audit fix --force
