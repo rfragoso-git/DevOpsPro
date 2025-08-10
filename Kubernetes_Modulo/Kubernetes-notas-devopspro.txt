@@ -74,3 +74,29 @@ Os 3 tipo de cluster Kubernetes
 - On-premises
 - Cloud providers 
 - Local Setup (Minikube, K3D e Kind) Curso (K3D e Kind) KIND mais próximo
+
+### K3D Cluster
+
+k3d cluster create
+
+kubectl cluster-info
+
+kubectl get nodes
+
+kubectl get pods
+
+kubectl get pods -o wide
+
+kubectl get services
+
+kubectl get endpoints
+
+kubectl get endpoints --watch
+
+kubectl get endpoints --watch -o wide
+
+cat ~/.kube/config
+
+kubectl get pods --watch -o wide
+
+kubectl get pods --selector=app=nginx
