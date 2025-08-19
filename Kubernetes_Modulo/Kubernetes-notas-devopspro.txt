@@ -77,7 +77,21 @@ Os 3 tipo de cluster Kubernetes
 
 ### K3D Cluster
 
-k3d cluster create
+k3d cluster create (criando default)
+
+k3d cluster create mycluster --no-lb
+
+k3d cluster create kubedevpro --servers 1 --agents 2
+
+k3d cluster create kubedevpro --servers 1 --agents 2 -p "8080:30000@loadbalancer"
+
+k3d cluster delete kubedevpro
+
+k3d cluster list
+
+k3d cluster delete kubedevpro
+
+###
 
 kubectl cluster-info
 
@@ -100,3 +114,5 @@ cat ~/.kube/config
 kubectl get pods --watch -o wide
 
 kubectl get pods --selector=app=nginx
+
+## Arquivo manifesto usado para criar qualquer objeto no Kubernetes, conhecido como criação declarativa;
