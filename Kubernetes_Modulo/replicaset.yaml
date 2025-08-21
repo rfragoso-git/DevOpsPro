@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysite
+  template:
+    metadata:
+      labels:
+        app: mysite
+    spec:
+      containers:
+      - name: mysite
+        image: rof1966/nginx-color:yellow
+        resources:
+          limits:
+            memory: 128Mi
+            cpu: 500m
+        ports:
+          - name: http
+            protocol: TCP
+            containerPort: 80

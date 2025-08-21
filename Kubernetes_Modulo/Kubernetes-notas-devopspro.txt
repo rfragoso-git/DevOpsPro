@@ -115,4 +115,61 @@ kubectl get pods --watch -o wide
 
 kubectl get pods --selector=app=nginx
 
-## Arquivo manifesto usado para criar qualquer objeto no Kubernetes, conhecido como criação declarativa;
+## Arquivo manifesto usado para criar qualquer objeto no Kubernetes, conhecido como criação declarativa.
+
+apiVersion: alpha, beta, latest
+
+# kubectl api-resources
+
+
+kind: tipo do objeto
+
+metadata: informar os metadados, as labels ....
+     name: my-pod
+spec: declaração
+
+# kubectl port-forward pod/mypod 8080:80
+
+ReplicaSet => quantidade de pods que se deseja executar
+
+obejtos labels e selectors:
+
+labels: é conjunto de chave:valor 
+
+selector: busca objetos que obedecem a condição do selector (labels)
+
+# kubectl delete -f .\pod_test.yaml
+
+# kubectl get replicaset
+
+# kubectl describe replicaset
+
+# kubectl apply -f replicaset.yaml && watch 'kubectl get rs,po'
+
+# kubectl rollout history deployment mysite
+
+# kubectl rollout undo deploy mysite // Retorna versão anterior do deploy
+
+### Services
+
+- ClusterIP = comunicação interna entre replicas 
+- LoadBalancer = 
+- NodePort =  elege uma porta que vai da 30000 a 32767
+- ExternalName = 
+
+- port: 80
+spec:
+  selector:
+    app: mysite
+  ports:
+  - port: 80 // Porta padrão do http, exposta no service 
+    targetPort: 80 // Porta a ser utilizada pelo POD, redireciona a chamada do service para o pod
+    name: http
+    protocol: TCP
+  type: 
+
+# kubectl run prompt -it --image ubuntu -- /bin/bash
+  apt update && apt install curl -yes
+# kubectl exec -it pod/prompt -- /bin/bash
+
+# kubectl run prompt --rm -it --image ubuntu -- /bin/bash

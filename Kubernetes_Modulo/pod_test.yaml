@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysite
+  labels:
+    app: mysite
+    versao: red
+spec:
+  containers:
+  - name: mysite
+    image: rof1966/nginx-color:red
+    resources:
+      limits:
+        memory: 128Mi
+        cpu: 500m
+    ports:
+      - name: http
+        protocol: TCP
+        containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysite2
+  labels:
+    app: mysite
+    versao: yellow
+spec:
+  containers:
+  - name: mysite2
+    image: rof1966/nginx-color:yellow
+    resources:
+      limits:
+        memory: 128Mi
+        cpu: 500m
+    ports:
+      - name: http
+        protocol: TCP
+        containerPort: 80
+
+    
+  

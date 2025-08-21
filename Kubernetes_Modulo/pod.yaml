@@ -1,10 +1,21 @@
-apiVersion:
-kind:
+apiVersion: v1
+kind: Pod
 metadata:
+  name: mypod
+  labels:
+    app.kubernetes.io/name: mypod
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
+  - name: mypod
+    image: rof1966/nginx-color:blue
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
     ports:
-    - containerPort: 80
-  restartPolicy: Always
+      - name: http
+        protocol: TCP
+        containerPort: 80
+
+
+  
